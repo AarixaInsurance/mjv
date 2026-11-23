@@ -33,6 +33,7 @@ export default function QuickInvestModal({
   const [category, setCategory] = useState(prefillCategory)
   const [horizon, setHorizon] = useState('3-5 Years')
   const [monthlyBudget, setMonthlyBudget] = useState('₹10,000 - ₹25,000')
+  const [consent, setConsent] = useState(false)
   const [isDone, setIsDone] = useState(false)
 
   if (!isOpen) return null
@@ -42,6 +43,7 @@ export default function QuickInvestModal({
     setIsDone(true)
     setTimeout(() => {
       setIsDone(false)
+      setConsent(false)
       onClose()
       onSubmitSuccess?.()
     }, 2200)
@@ -93,10 +95,9 @@ export default function QuickInvestModal({
                 className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-[#064789] focus:bg-white focus:outline-none"
               >
                 <option value="Mutual Funds">Mutual Funds (SIP / Lumpsum)</option>
-                <option value="Life & Health Insurance">Comprehensive Life & Health Insurance</option>
+                <option value="Health Insurance">Health Insurance (Star Health)</option>
                 <option value="Corporate Deposits">High Yield Corporate Fixed Deposits</option>
                 <option value="PMS">Portfolio Management Services (PMS / AIF)</option>
-                <option value="Asset Insurance">Asset, Fire & Business Insurance</option>
                 <option value="Bonds & Debentures">Tax-Saving Bonds & Sovereign Debentures</option>
                 <option value="Retirement / Child Education">Retirement or Child Higher Education Fund</option>
               </select>
@@ -180,6 +181,21 @@ export default function QuickInvestModal({
                   className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-[#064789] focus:bg-white focus:outline-none"
                 />
               </div>
+            </div>
+
+            <div className="pt-1">
+              <label className="flex items-start gap-2.5 cursor-pointer select-none text-xs leading-relaxed text-slate-600">
+                <input
+                  type="checkbox"
+                  required
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 size-4 rounded border-slate-300 text-[#064789] focus:ring-[#064789] cursor-pointer"
+                />
+                <span>
+                  I consent to MJV Finserv collecting and processing my contact details to share personalized financial proposals and advisory communications.
+                </span>
+              </label>
             </div>
 
             <div className="pt-2">

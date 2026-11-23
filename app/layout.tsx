@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import AutoRefreshWatcher from '@/components/AutoRefreshWatcher'
 import './globals.css'
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'MJV Finserv Pvt Ltd | Strategic Wealth & Financial Planning',
-  description: 'MJV Finserv Pvt Ltd provides transparent financial planning, investment solutions, insurance, and wealth guidance for families, professionals, and businesses.',
+  description: 'MJV Finserv Pvt Ltd provides transparent financial planning, investment solutions, Star Health Insurance, and wealth guidance for families, professionals, and businesses.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -47,7 +48,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
+      </head>
       <body className={`${inter.className} font-sans antialiased text-slate-800 bg-slate-50`}>
+        <AutoRefreshWatcher />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

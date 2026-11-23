@@ -33,7 +33,6 @@ import {
   CheckCheck
 } from 'lucide-react'
 
-import MarketTicker from '@/components/MarketTicker'
 import FinancialCalculators from '@/components/FinancialCalculators'
 import PortfolioLoginModal from '@/components/PortfolioLoginModal'
 import QuickInvestModal from '@/components/QuickInvestModal'
@@ -58,11 +57,11 @@ const solutions: SolutionItem[] = [
   },
   {
     icon: HeartPulse,
-    title: 'Life & Health Insurance',
-    text: 'Comprehensive term plans, critical illness riders, and cashless family mediclaim policies.',
-    tag: 'Family Protection',
-    features: ['Instant claim assistance', 'Coverage up to ₹10+ Cr', 'Top insurers compared'],
-    category: 'Life & Health Insurance',
+    title: 'Health Insurance (Star Health)',
+    text: 'Comprehensive medical coverage, cashless hospitalization, and family health protection powered by Star Health Insurance.',
+    tag: 'Star Health Partner',
+    features: ['Authorized Star Health Partner', '14,000+ network cashless hospitals', 'Dedicated claim settlement assistance'],
+    category: 'Health Insurance',
   },
   {
     icon: CircleDollarSign,
@@ -81,14 +80,6 @@ const solutions: SolutionItem[] = [
     category: 'PMS',
   },
   {
-    icon: ShieldCheck,
-    title: 'Asset & General Insurance',
-    text: 'Robust insurance protection covering commercial factory assets, machinery, fire, transit & fleets.',
-    tag: 'Asset Security',
-    features: ['Zero depreciation add-ons', 'Turnaround in 24 hrs', 'Risk assessment surveys'],
-    category: 'Asset Insurance',
-  },
-  {
     icon: FileText,
     title: 'Bonds & Sovereign Debentures',
     text: 'Government Securities (G-Sec), RBI floating rate bonds & high-yield listed non-convertible debentures.',
@@ -99,9 +90,9 @@ const solutions: SolutionItem[] = [
 ]
 
 const stats = [
-  ['25+ Years', 'of trusted financial lineage', ShieldCheck],
+  ['18+ Yrs', 'Experience in financial guidance', ShieldCheck],
   ['5,000+', 'investor families served nationwide', Users],
-  ['₹500 Cr+', 'assets guided with diligence', TrendingUp],
+  ['₹300 Cr+', 'Assets guided with diligence', TrendingUp],
   ['100%', 'AMFI registered & compliant', LockKeyhole],
 ]
 
@@ -117,6 +108,7 @@ export default function Page() {
   const [phone, setPhone] = useState('')
   const [service, setService] = useState('Wealth planning')
   const [message, setMessage] = useState('')
+  const [consent, setConsent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
@@ -141,15 +133,14 @@ Registration Date: 19/09/2025 | Current Validity: 18/09/2028
 
 Thank you for downloading the MJV Finserv Wealth & Protection Guide 2026.
 Contact: mjvfinserv@gmail.com | +91 94221 04060
-Office: 2nd Floor, Landmark Plaza, Pune, Maharashtra
+Office: 123 & 124, Rahul Complex, ST Stand, Dwarka Travel, Ganesh Peth, Pune
 
 Key Services:
 1. Mutual Funds & Goal SIPs
-2. Term Life & Health Insurance
+2. Health Insurance (Star Health)
 3. High Yield Corporate Fixed Deposits
 4. Portfolio Management Services (PMS & AIF)
-5. Asset & Commercial Risk Coverage
-6. Government Bonds & Listed Debentures
+5. Government Bonds & Listed Debentures
 `
       ], { type: 'text/plain' })
       element.href = URL.createObjectURL(file)
@@ -166,6 +157,7 @@ Key Services:
     setTimeout(() => {
       setIsSubmitting(false)
       setSubmitted(true)
+      setConsent(false)
     }, 700)
   }
 
@@ -294,9 +286,6 @@ Key Services:
         )}
       </header>
 
-      {/* Live Sensex / Nifty Moving Banner */}
-      <MarketTicker />
-
       {/* Hero Section */}
       <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#064789] via-[#053d75] to-[#04284d] px-4 py-8 sm:py-10 text-white">
         <div className="absolute -right-24 -top-24 size-[360px] rounded-full border-[60px] border-white/5 blur-[1px] pointer-events-none" />
@@ -318,7 +307,7 @@ Key Services:
             <p className="mt-3.5 max-w-xl text-sm sm:text-base leading-relaxed text-blue-100/90">
               Personalized wealth planning, tax-efficient mutual funds, and risk management for{' '}
               <strong className="text-white font-semibold">families, professionals, NRIs, and business leaders</strong>.
-              Transparent advice governed strictly by AMFI standards.
+              Transparent discussion governed strictly by AMFI standards.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -416,9 +405,9 @@ Key Services:
                 <div className="size-8 rounded-lg bg-blue-50 text-[#064789] grid place-items-center mb-2.5 font-bold">
                   <Sparkles className="size-4" />
                 </div>
-                <h3 className="font-bold text-slate-900 text-sm">Transparent Advice</h3>
+                <h3 className="font-bold text-slate-900 text-sm">Transparent Discussion</h3>
                 <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                  Full upfront disclosure of trailing commissions, expense ratios, and fund exit terms.
+                  Full upfront disclosure with open discussion on commissions, expense ratios, and investment terms.
                 </p>
               </div>
             </div>
@@ -474,7 +463,7 @@ Key Services:
               </h2>
             </div>
             <p className="max-w-md text-xs sm:text-sm leading-relaxed text-slate-600">
-              From building your very first monthly SIP to insuring commercial business assets and structuring PMS portfolios.
+              From building your very first monthly SIP to securing your family with Star Health Insurance and structuring PMS portfolios.
             </p>
           </div>
 
@@ -580,13 +569,13 @@ Key Services:
               </a>
 
               <div className="flex items-center gap-3">
-                <div className="grid size-8 place-items-center rounded-lg bg-white/10 text-white">
+                <div className="grid size-8 place-items-center rounded-lg bg-white/10 text-white shrink-0">
                   <Target className="size-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-blue-300">Registered Office</div>
+                  <div className="text-[10px] text-blue-300">Office Address</div>
                   <div className="font-semibold text-white">
-                    2nd Floor, Landmark Plaza, Pune, Maharashtra - 411001
+                    123 & 124, Rahul Complex, ST Stand, Dwarka Travel, Ganesh Peth, Pune
                   </div>
                 </div>
               </div>
@@ -671,7 +660,7 @@ Key Services:
                   >
                     <option value="Wealth planning">Comprehensive Wealth & Financial Planning</option>
                     <option value="Mutual funds">Mutual Funds & SIP Portfolio Optimization</option>
-                    <option value="Insurance">Life & Health Insurance Audit</option>
+                    <option value="Health Insurance">Health Insurance (Star Health)</option>
                     <option value="Corporate solutions">Corporate Deposits & High Yield Bonds</option>
                     <option value="PMS">Portfolio Management Services (PMS / AIF)</option>
                     <option value="NRI Desk">NRI Investment & Repatriation Desk</option>
@@ -689,6 +678,21 @@ Key Services:
                     placeholder="Tell us about your target goals or current investments..."
                     className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#064789] focus:bg-white focus:outline-none resize-none"
                   />
+                </div>
+
+                <div className="pt-1">
+                  <label className="flex items-start gap-2.5 cursor-pointer select-none text-[11px] leading-snug text-slate-600">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={consent}
+                      onChange={(e) => setConsent(e.target.checked)}
+                      className="mt-0.5 size-4 rounded border-slate-300 text-[#064789] focus:ring-[#064789] cursor-pointer"
+                    />
+                    <span>
+                      I consent to MJV Finserv collecting and processing my contact information to connect with me regarding financial services and proposals.
+                    </span>
+                  </label>
                 </div>
 
                 <button
@@ -768,7 +772,7 @@ Key Services:
             © 2026 MJV Finserv Private Limited · CIN: Financial Services Advisory. All Rights Reserved.
           </span>
           <span>
-            Office: Pune, Maharashtra · Helpline: +91 94221 04060 · mjvfinserv@gmail.com
+            Office: 123 & 124, Rahul Complex, ST Stand, Dwarka Travel, Ganesh Peth, Pune · Helpline: +91 94221 04060 · mjvfinserv@gmail.com
           </span>
         </div>
       </footer>
